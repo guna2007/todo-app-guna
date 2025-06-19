@@ -256,3 +256,22 @@ button#pinbutton:hover {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   letter-spacing: 0.3px;
 }
+
+.footer a {
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+.footer .icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  filter: grayscale(50%);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.footer .icon:hover {
+  transform: scale(1.2);
+  filter: grayscale(0%);
+}
+
