@@ -1,0 +1,258 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(135deg, rgba(20, 14, 182, 0.683), rgba(66, 22, 85, 0.662));
+    overflow: auto;
+    font-family: sans-serif;
+    font-size: 1.25rem;
+}
+
+/* Utility */
+.invisible {
+    display: none;
+}
+
+.deleted .text {
+    text-decoration: line-through;
+}
+
+.deleted {
+    opacity: 0.7;
+    scale: 0.8;
+    transition: all 0.2s ease-in-out;
+}
+
+.fadein {
+    animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0.2;
+        scale: 0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.fadeout {
+    animation: fade-out 0.5s ease-in-out;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.undo {
+    opacity: 1;
+    scale: 1;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+/* Card Container */
+.card {
+    text-align: center;
+    width: 800px;
+    min-height: 350px;
+    margin-inline: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-top: 80px;
+    padding-bottom: 10px;
+    box-shadow: 5px 5px 10px rgba(212, 8, 253, 0.333);
+}
+
+.card h1 {
+    padding-top: 20px;
+    text-shadow: 3px 3px 5px rgba(74, 30, 74, 0.418);
+}
+
+/* Form */
+.adding {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.adding input {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 10px 5px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.adding button {
+    background-color: #1dd138cb;
+    border: none;
+    font-size: 1.25rem;
+    border-radius: 15px;
+    color: #03070C;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.adding button:hover {
+    background-color: hsl(129, 100%, 50%);
+    cursor: pointer;
+}
+
+.adding button:active {
+    background-color: hsl(129, 61%, 57%);
+    cursor: pointer;
+}
+
+/* Tasks Display */
+.displaytasks {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Each Task Styling */
+.eachtask {
+    background-color: rgba(247, 247, 255, 0.838);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 520px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    word-break: break-word;
+}
+
+.eachtask .text {
+    flex-grow: 1;
+    margin: 0 10px;
+    font-size: 1.1rem;
+}
+
+.eachtask button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.eachtask button:hover {
+    scale: 1.2;
+}
+
+.eachtask button:active {
+    scale: 1.2;
+}
+
+.eachtask input {
+    scale: 1.5;
+    accent-color: rgb(151, 79, 215);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.eachtask input:hover {
+    scale: 1.7;
+}
+
+.eachtask input:active {
+    scale: 1.5;
+}
+
+/* Caption */
+.caption {
+    margin: 80px 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.395);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+/* Pin Button */
+button#pinbutton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 6px;
+    transition: transform 0.2s;
+}
+
+button#pinbutton:hover {
+    transform: scale(1.2);
+}
+
+/* Timestamp */
+.timestamp {
+    font-size: 0.8rem;
+    color: #4d4d4d;
+    margin-right: 10px;
+    font-family: monospace;
+    width: 50px;
+    display: inline-block;
+    text-align: right;
+    display: grid;
+    place-content: center;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    padding: 6px 12px;
+    border: none;
+    background-color: #eeeeee;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.filters button:hover {
+    background-color: #ccc;
+    scale: 1.2;
+}
+
+.filters button.active {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+}
+
+.footer {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 12px 0 8px 0;
+  margin-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.3px;
+}
