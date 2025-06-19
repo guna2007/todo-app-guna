@@ -11,7 +11,7 @@ html, body {
 body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
-    background-image: linear-gradient(135deg, rgba(20, 14, 182, 0.683), rgba(66, 22, 85, 0.662));
+    background-image: linear-gradient(135deg, #3B3C36, #002147);
     overflow: auto;
     font-size: 1.25rem;
 }
@@ -74,11 +74,11 @@ body {
     width: 800px;
     min-height: 350px;
     margin-inline: auto;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 253, 253, 0.404);
     border-radius: 10px;
     margin-top: 80px;
     padding-bottom: 10px;
-    box-shadow: 5px 5px 10px rgba(212, 8, 253, 0.333);
+    box-shadow: 5px 5px 10px rgba(51, 44, 53, 0.333);
 }
 
 .card h1 {
