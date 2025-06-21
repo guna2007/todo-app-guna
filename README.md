@@ -8,6 +8,10 @@ A fully responsive and interactive To-Do List web application built using **HTML
 
 👉 [Click here to view the live app](https://todo-app-guna.vercel.app)
 
+### 🖥️ Desktop View
+![Desktop Screenshot](https://github.com/user-attachments/assets/6f82a4dd-5f72-4a28-857d-e1eb3a8da2ed)
+
+
 ---
 
 ## 🎯 Features
@@ -51,12 +55,15 @@ cd todo-app-guna
 ## 📷 Screenshots
 
 ### 🖥️ Desktop View
-![Desktop Screenshot](https://user-images.githubusercontent.com/yourusername/desktop-screenshot.png)
+![Desktop Screenshot](https://github.com/user-attachments/assets/6f82a4dd-5f72-4a28-857d-e1eb3a8da2ed)
+
+### 📱 Tablet View
+![Tablet Screenshot](https://github.com/user-attachments/assets/c5a9f572-9e21-421e-829a-430b1d62cf8a)
 
 ### 📱 Mobile View
-![Mobile Screenshot](https://user-images.githubusercontent.com/yourusername/mobile-screenshot.png)
+![Mobile Screenshot](https://github.com/user-attachments/assets/fbab0555-c27b-474b-8b90-a09e6e51c2dc)
 
-> 📌 Use Chrome DevTools → Toggle Device → Take full-page screenshots and upload to GitHub repo or issue → use raw URLs above.
+> 📌 All screenshots captured using Chrome DevTools responsive modes and full-size screenshot tool.
 
 ---
 
@@ -87,6 +94,6 @@ You are free to view, use, and modify it with credit.
 ## 📌 Submission Details
 
 - 🔗 **Live App**: [https://todo-app-guna.vercel.app](https://todo-app-guna.vercel.app)
-- 🗂️ **GitHub Repo**: [https://github.com/yourusername/todo-app-guna](https://github.com/yourusername/todo-app-guna)
+- 🗂️ **GitHub Repo**: [https://github.com/guna2007/todo-app-guna](https://github.com/guna2007/todo-app-guna)
 
 
