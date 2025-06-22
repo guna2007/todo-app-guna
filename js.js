@@ -7,12 +7,20 @@
 // 6.add a caption and remove it when a task is added ::ok
 // 7.pin to top ::ok
 // 8.fadein only for new task ::ok
+// 9.fadeout only for new task ::ok
+// 10.timestamp adding ::ok
+// 11.footer with links ::ok
+// 12.filters are tested ::ok
+// 13.production level code :: ongoing
+
+
+//global vars
 
 let taskcount = 0;
 let tasks = [];
 let currentFilter = 'all';
 
-
+//important elements
 let addform = document.getElementById("addform");
 let task = document.getElementById("task");
 let displaytasks = document.querySelector(".displaytasks");
@@ -25,16 +33,16 @@ function isnotask() {
     caption.classList.remove("invisible");
   }
 }
-
+//stringify for localstorage
 function saveTasksToLocal() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
+//filters section
 function setFilter(filterType) {
   currentFilter = filterType;
   renderTasks();
 
-  // Update active class on buttons
+  //active class on buttons
   const allFilterButtons = document.querySelectorAll(".filters button");
   allFilterButtons.forEach(btn => btn.classList.remove("active"));
 
@@ -43,7 +51,32 @@ function setFilter(filterType) {
     activeBtn.classList.add("active");
   }
 }
+//pin to top
+function togglePin(button) {
+  const id = Number(button.getAttribute("data-id"));
+  tasks = tasks.map(task =>
+    task.id === id ? { ...task, pinned: !task.pinned } : task
+  );
+  saveTasksToLocal();
+  renderTasks(); // no animation
+}
+//deleting tasks
+function deletetask(button) {
+  const id = Number(button.getAttribute("data-id"));
+  tasks = tasks.filter(task => task.id !== id);
+  taskcount--;
+  saveTasksToLocal();
 
+  //find the full .eachtask wrapper
+  let taskElem = button.closest(".eachtask");
+  if (!taskElem) return;
+
+  taskElem.classList.add("fadeout");
+  taskElem.addEventListener("animationend", () => {
+    taskElem.remove();
+    isnotask();
+  });
+}
 
 function renderTasks(animateNew = false, newTaskId = null) {
   displaytasks.innerHTML = "";
@@ -86,7 +119,6 @@ function renderTasks(animateNew = false, newTaskId = null) {
   </div>
 `;
 
-
     if (animateNew && taskObj.id === newTaskId) {
       newtask.classList.add("fadein");
     }
@@ -94,7 +126,7 @@ function renderTasks(animateNew = false, newTaskId = null) {
     displaytasks.appendChild(newtask);
   });
 
-  // ✅ This part must be after the loop
+  //if no task
   if (filteredTasks.length === 0) {
     caption.textContent = "No tasks available.";
     caption.classList.remove("invisible");
@@ -104,52 +136,22 @@ function renderTasks(animateNew = false, newTaskId = null) {
   }
 }
 
-
-
-function togglePin(button) {
-  const id = Number(button.getAttribute("data-id"));
-  tasks = tasks.map(task =>
-    task.id === id ? { ...task, pinned: !task.pinned } : task
-  );
-  saveTasksToLocal();
-  renderTasks(); // no animation
-}
-
-function deletetask(button) {
-  const id = Number(button.getAttribute("data-id"));
-  tasks = tasks.filter(task => task.id !== id);
-  taskcount--;
-  saveTasksToLocal();
-
-  // ✅ Fix: find the full .eachtask wrapper
-  let taskElem = button.closest(".eachtask");
-  if (!taskElem) return;
-
-  taskElem.classList.add("fadeout");
-  taskElem.addEventListener("animationend", () => {
-    taskElem.remove();
-    isnotask();
-  });
-}
-
-
 addform.addEventListener("submit", (event) => {
   event.preventDefault();
   if (task.value.trim() === "") {
     alert("Enter Valid Task....");
     return;
   }
+//tiemstamps
+  const now = new Date();
 
-
-const now = new Date();
-
-let taskObj = {
-  id: Date.now(),
-  text: task.value.trim(),
-  completed: false,
-  pinned: false,
-  time: now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0')
-};
+  let taskObj = {
+    id: Date.now(),
+    text: task.value.trim(),
+    completed: false,
+    pinned: false,
+    time: now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0')
+  };
 
   tasks.push(taskObj);
   taskcount++;
@@ -178,7 +180,7 @@ displaytasks.addEventListener("click", (event) => {
     saveTasksToLocal();
   }
 });
-
+//parsing localstorage
 window.onload = () => {
   const stored = localStorage.getItem("tasks");
   if (stored) {

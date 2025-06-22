@@ -1,5 +1,5 @@
 /* ================================
-   Mobile Layout Refinement (≤ 480px)
+   Mobile Layout (≤ 480px)
 ================================== */
 @media (max-width: 480px) {
 
@@ -138,7 +138,7 @@
   }
 
   .eachtask {
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
